@@ -14,10 +14,6 @@ export class AmountFormatDirective {
     if ( initialValue !== this.el.nativeElement.value) {
       event.stopPropagation();
     }
-
-    if (this.el.nativeElement.value === '') {
-      this.el.nativeElement.value = 0;
-    }
   }
 
   @HostListener('keypress', ['$event']) onKeypress(event): void {
@@ -30,6 +26,10 @@ export class AmountFormatDirective {
   }
 
   @HostListener('focusout') onFocusOut(): void {
+    if (this.el.nativeElement.value === '') {
+      this.el.nativeElement.value = 0;
+    }
+
     this.el.nativeElement.value = parseFloat(this.el.nativeElement.value).toFixed(2);
   }
 }
