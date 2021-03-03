@@ -1,0 +1,32 @@
+<div class="single-comment">
+  <div class="single-comment_content-container">
+    <div class="single-comment_content-container--comment-type">
+      <span
+        [ngClass]="comment.type === 'Internal' ? 'single-comment_comment-type-label--internal' : 'single-comment_comment-type-label--external'"
+       >{{ comment.type }}</span>
+    </div>
+    <div class="single-comment_content-container--comment-content">
+      <p class="single-comment_content-text">
+        {{ comment.comment }}
+      </p>
+    </div>
+    <div class="single-comment_content-container--comment-author">
+      <p class="single-comment_content-text">
+        {{ comment.author }}
+      </p>
+    </div>
+    <div class="single-comment_content-container--comment-date">
+      <p class="single-comment_content-text--secondary">
+        {{ comment.date | date:'d MMM y h:mm' }}
+      </p>
+    </div>
+    <div class="single-comment_content-container--action-icons">
+      <button class="single-comment_comment-button">
+        <fa-icon [icon]="editIcon" class="single-comment_comment-icon"></fa-icon>
+      </button>
+      <button class="single-comment_comment-button">
+        <fa-icon [icon]="deleteIcon" class="single-comment_comment-icon"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>

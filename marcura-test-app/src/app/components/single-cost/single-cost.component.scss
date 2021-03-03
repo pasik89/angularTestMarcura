@@ -1,6 +1,12 @@
 @import "../../../assets/styles/variables";
 
 .single-cost {
+  border: 1px solid $border-color;
+
+  &:nth-child(n + 1) {
+    border-top: 0;
+  }
+
   &_content-container {
     display: grid;
     grid-template-columns: 1fr 2fr 0.6fr 0.6fr 0.8fr;
@@ -8,30 +14,51 @@
     gap: 0 10px;
     grid-template-areas: 'single-cost_content-container--cost-name single-cost_content-container--account-code single-cost_content-container--quoted single-cost_content-container--screened single-cost_content-container--empty';
 
-    padding: 0 10px;
+    padding: 5px 10px;
   }
 
   &_content-flex-row {
     display: flex;
     align-items: center;
+
+    &--vertical-align {
+      justify-content: center;
+    }
   }
 
   &_content-flex-column {
     display: flex;
     flex-direction: column;
     justify-items: center;
+    align-items: flex-end;
+  }
+
+  &_comment-icon {
+    margin-right: 5px;
+    color: $primary-gray;
+  }
+
+  &_comment-button {
+    all: unset;
+    cursor: pointer;
   }
 
   &_content-text {
+    margin: 2px 0;
     color: $primary-text-color;
     font-size: $primary-text-size;
-    margin: 10px 0;
+    font-weight: 600;
+
+    &--secondary {
+      @extend .single-cost_content-text;
+
+      color: $secondary-text-color;
+      font-size: $secondary-text-size;
+    }
   }
 
   &_input-container {
     position: relative;
-    margin-top: 10px;
-
   }
 
   &_input-currency {
@@ -39,12 +66,20 @@
     top: 0;
     left: 0;
     transform: translate(15%, 25%);
-    color: $primary-text-color;
-    font-size: $primary-text-size;
+    color: $secondary-text-color;
+    font-size: $secondary-text-size;
   }
 
   &_input {
+    padding: 2px;
+    border: 1px solid $border-color;
+    border-radius: 2px;
     text-align: right;
+  }
+
+  &_comment-section {
+    background-color: $secondary-blue;
+    padding: 0 10px;
   }
 }
 

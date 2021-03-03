@@ -1,0 +1,23 @@
+<form class="comment-form" (ngSubmit)="onSubmit($event)" [formGroup]="formGroup">
+  <div class="comment-form_content-container">
+    <div class="comment-form_content-container--select-type">
+      <select class="comment-form_comment-select" [name]="uniqSelectId" [id]="uniqSelectId" formControlName="commentType">
+        <option *ngFor="let option of selectOptions" [value]="option.value">
+          {{ option.name }}
+        </option>
+      </select>
+    </div>
+    <div class="comment-form_content-container--comment">
+      <textarea class="comment-form_comment-input" type="text" formControlName="comment" [rows]="1"></textarea>
+    </div>
+    <div class="comment-form_content-container--submit">
+      <button
+        [disabled]="formGroup.invalid"
+        type="submit"
+        class="comment-form_comment-button"
+      >
+        Add
+      </button>
+    </div>
+  </div>
+</form>

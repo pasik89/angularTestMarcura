@@ -8,15 +8,13 @@
         {{ cost.costItemAlias.accountingCode }}
       </p>
     </div>
-    <div class="single-cost_content-container--quoted single-cost_content-flex-row">
-      <div>
+    <div class="single-cost_content-container--quoted single-cost_content-flex-column">
         <p class="single-cost_content-text">
-          {{ selectedCurrency }} {{ quotedCost }}
+          <span class="single-cost_content-text--secondary">{{ selectedCurrency }}</span> {{ quotedCost | amount }}
         </p>
-        <p class="single-cost_content-text">
-          USD {{ exchangeQuotedCostInUSD }}
+        <p class="single-cost_content-text--secondary">
+          USD {{ quotedCostInUSD | amount }}
         </p>
-      </div>
     </div>
     <div class="single-cost_content-container--screened single-cost_content-flex-column">
       <div class="single-cost_input-container">
@@ -25,10 +23,21 @@
         </span>
         <input class="single-cost_input" type="text" appAmountFormat [(ngModel)]="screenedCostInput" (ngModelChange)="onChange($event)">
       </div>
-      <p class="single-cost_content-text">
-        USD {{ screenedCostInUSD }}
+      <p class="single-cost_content-text--secondary">
+        USD {{ screenedCostInUSD | amount }}
       </p>
     </div>
-    <div class="single-cost_content-container--empty"></div>
+    <div class="single-cost_content-container--empty single-cost_content-flex-row single-cost_content-flex-row--vertical-align">
+      <button class="single-cost_comment-button" (click)="showCommentSection()">
+        <fa-icon [icon]="commentIcon" class="single-cost_comment-icon"></fa-icon>
+      </button>
+      <p class="single-cost_content-text">{{ commentCount }}</p>
+    </div>
+  </div>
+
+  <div class="single-cost_comment-section" *ngIf="isCommentSectionVisible">
+    <app-comment-group [comments]="cost.comments"></app-comment-group>
+
+    <app-comment-form [costId]="cost.id"></app-comment-form>
   </div>
 </div>

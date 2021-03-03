@@ -3,6 +3,7 @@
     <h1 class="costs-container_header">Costs</h1>
 
     <div class="costs-container_select-container">
+      <p class="costs-container_text">Currency</p>
       <select
         [(ngModel)]="selectedCurrency"
         (ngModelChange)="onChange($event)"
@@ -22,7 +23,7 @@
     </div>
   </div>
 
-  <div class="costs-container-cost-group">
+  <div class="costs-container_cost-group">
     <app-cost-group
       *ngFor="let costGroup of costs.costs"
       [costGroup]="costGroup"

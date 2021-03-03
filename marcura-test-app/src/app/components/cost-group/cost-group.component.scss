@@ -1,6 +1,8 @@
 @import "../../../assets/styles/variables";
 
 .cost-group {
+  margin-bottom: 15px;
+
   &_header {
     display: grid;
     grid-template-columns: 1fr 2fr 0.6fr 0.6fr 0.8fr;
@@ -12,5 +14,52 @@
 
     background-color: $primary-blue;
     color: $primary-white;
+
+    &--quoted,
+    &--screened{
+      text-align: right;
+    }
+  }
+
+  &_total-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 0.6fr 0.6fr 0.8fr;
+    grid-template-rows: 1fr;
+    gap: 0 10px;
+    grid-template-areas: 'single-cost_content-container--cost-name single-cost_content-container--account-code single-cost_content-container--quoted single-cost_content-container--screened single-cost_content-container--empty';
+
+    border: 1px solid $border-color;
+    border-top-color: $primary-blue;
+    padding: 5px 10px;
+  }
+
+  &_total-flex-row {
+    display: flex;
+    align-items: center;
+
+    &--vertical-align {
+      justify-content: center;
+    }
+  }
+
+  &_total-flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: flex-end;
+  }
+
+  &_total-text {
+    margin: 2px 0;
+    color: $primary-text-color;
+    font-size: $primary-text-size;
+    font-weight: 600;
+
+    &--secondary {
+      @extend .cost-group_total-text;
+
+      color: $secondary-text-color;
+      font-size: $secondary-text-size;
+    }
   }
 }

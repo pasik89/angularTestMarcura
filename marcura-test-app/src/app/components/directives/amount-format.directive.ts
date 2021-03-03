@@ -14,6 +14,10 @@ export class AmountFormatDirective {
     if ( initialValue !== this.el.nativeElement.value) {
       event.stopPropagation();
     }
+
+    if (this.el.nativeElement.value === '') {
+      this.el.nativeElement.value = 0;
+    }
   }
 
   @HostListener('keypress', ['$event']) onKeypress(event): void {

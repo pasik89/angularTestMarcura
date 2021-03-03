@@ -7,23 +7,23 @@ $select-border-color: #b8c7cf;
 
   &_header-container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    margin-bottom: 10px;
   }
 
   &_select-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &_select {
     width: 145px;
-
-    margin-right: 20px;
-    padding: 0 5px;
-
+    margin: 0 20px;
+    padding: 5px;
     border-color: $select-border-color;
     border-radius: 2px;
-
     color: $primary-text-color;
     font-size: $primary-text-size;
   }

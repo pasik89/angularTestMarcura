@@ -29,7 +29,31 @@
       [selectedCurrency]="selectedCurrency"
       [exchangeRates]="exchangeRates"
     >
-
     </app-single-cost>
+    <div class="cost-group_total-container">
+      <div class="cost-group_total-container--cost-name cost-group_total-flex-row">
+        <p class="cost-group_total-text"><strong>Total</strong></p>
+      </div>
+      <div class="cost-group_content-container--account-code cost-group_total-flex-row">
+      </div>
+      <div class="cost-group_total-container--quoted cost-group_total-flex-column">
+        <p class="cost-group_total-text">
+          <span class="cost-group_total-text--secondary">{{ selectedCurrency }}</span> {{ totalQuotedCost | amount }}
+        </p>
+        <p class="cost-group_total-text--secondary">
+          USD {{ totalQuotedCostInUSD | amount }}
+        </p>
+      </div>
+      <div class="cost-group_total-container--screened cost-group_total-flex-column">
+        <p class="cost-group_total-text">
+          <span class="cost-group_total-text--secondary">{{ selectedCurrency }}</span> {{ totalScreenedCost | amount }}
+        </p>
+        <p class="cost-group_total-text--secondary">
+          USD {{ totalScreenedCostInUSD | amount }}
+        </p>
+      </div>
+      <div class="cost-group_total-container--empty">
+      </div>
+    </div>
   </div>
 </div>

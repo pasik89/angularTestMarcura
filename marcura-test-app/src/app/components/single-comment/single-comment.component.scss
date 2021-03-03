@@ -1,0 +1,79 @@
+@import "../../../assets/styles/variables";
+
+.single-comment {
+  border-bottom: 1px solid $border-color;
+
+  &:nth-child(n + 1) {
+    border-top: 0;
+  }
+
+  &_content-container {
+    display: grid;
+    grid-template-columns: 0.3fr 3.7fr 0.5fr 0.4fr 0.2fr;
+    grid-template-rows: 1fr;
+    gap: 0 10px;
+    grid-template-areas: 'single-comment_content-container--comment-type single-comment_content-container--comment-content single-comment_content-container--comment-author single-comment_content-container--comment-date single-comment_content-container--action-icons';
+
+    padding: 5px 0;
+
+    &--action-icons {
+      display: flex;
+      justify-content: space-around;
+      padding: 0 10px;
+    }
+
+    &--comment-type {
+      display: flex;
+      align-items: center;
+    }
+
+    &--comment-date,
+    &--comment-author {
+      text-align: right;
+    }
+  }
+
+  &_comment-icon {
+    margin-right: 5px;
+    color: $primary-gray;
+  }
+
+  &_comment-button {
+    all: unset;
+    cursor: pointer;
+  }
+
+  &_content-text {
+    margin: 2px 0;
+    color: $primary-text-color;
+    font-size: $primary-text-size;
+
+    &--secondary {
+      @extend .single-comment_content-text;
+
+      color: $secondary-text-color;
+    }
+  }
+
+  &_comment-type-label {
+    &--internal {
+      margin: 0;
+      border: 1px solid $border-color;
+      border-radius: 25px;
+      padding: 0 10px;
+
+      background: $primary-white;
+      color: $secondary-text-color;
+      font-size: $secondary-text-size;
+    }
+
+    &--external {
+      margin: 0;
+      border-radius: 25px;
+      padding: 0 10px;
+      background: #43565f;
+      color: $primary-white;
+      font-size: $secondary-text-size;
+    }
+  }
+}
