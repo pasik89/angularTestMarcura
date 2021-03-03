@@ -1,0 +1,44 @@
+@import "../../../assets/styles/variables";
+$select-border-color: #b8c7cf;
+
+.costs-container {
+  padding: 20px 35px;
+  border: 1px solid $border-color;
+
+  &_header-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_select-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_select {
+    width: 145px;
+
+    margin-right: 20px;
+    padding: 0 5px;
+
+    border-color: $select-border-color;
+    border-radius: 2px;
+
+    color: $primary-text-color;
+    font-size: $primary-text-size;
+  }
+
+  &_header {
+    color: $header-text-color;
+    font-size: $primary-text-size;
+  }
+
+  &_text {
+    color: $primary-text-color;
+    font-size: $primary-text-size;
+
+    &--bold {
+      font-weight: 700;
+    }
+  }
+}

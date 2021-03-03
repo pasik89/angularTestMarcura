@@ -1,0 +1,35 @@
+<div class="cost-group">
+  <div class="cost-group_header">
+    <div class="cost-group_header--cost-name">
+      <p>{{ costGroup.name }}</p>
+    </div>
+    <div class="cost-group_header--account-code">
+      <p>
+        Account code
+      </p>
+    </div>
+    <div class="cost-group_header--quoted">
+      <p>
+        Quoted
+      </p>
+    </div>
+    <div class="cost-group_header--screened">
+      <p>
+        Screened
+      </p>
+    </div>
+    <div class="cost-group_header--empty"></div>
+  </div>
+
+  <div class="cost-group_single-cost">
+    <app-single-cost
+      *ngFor="let singleCost of costGroup.costItems"
+      [cost]="singleCost"
+      [daCurrency]="daCurrency"
+      [selectedCurrency]="selectedCurrency"
+      [exchangeRates]="exchangeRates"
+    >
+
+    </app-single-cost>
+  </div>
+</div>

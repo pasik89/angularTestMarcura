@@ -1,0 +1,34 @@
+<div class="costs-container">
+  <div class="costs-container_header-container">
+    <h1 class="costs-container_header">Costs</h1>
+
+    <div class="costs-container_select-container">
+      <select
+        [(ngModel)]="selectedCurrency"
+        (ngModelChange)="onChange($event)"
+        class="costs-container_select"
+        name="currency"
+        id="currency"
+      >
+        <option
+          *ngFor="let currency of currencies"
+        >{{ currency }}</option>
+      </select>
+      <div class="costs-container_currency-rate">
+        <p class="costs-container_text">
+          1 {{ costs.baseCurrency.currency }} = <span class="costs-container_text--bold">{{ currencyExchangeRate }} {{ selectedCurrency }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="costs-container-cost-group">
+    <app-cost-group
+      *ngFor="let costGroup of costs.costs"
+      [costGroup]="costGroup"
+      [selectedCurrency]="selectedCurrency"
+      [exchangeRates]="exchangeRates"
+      [daCurrency]="costs.daCurrency.currency"
+    ></app-cost-group>
+  </div>
+</div>

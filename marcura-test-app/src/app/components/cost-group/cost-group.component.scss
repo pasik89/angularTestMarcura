@@ -1,0 +1,16 @@
+@import "../../../assets/styles/variables";
+
+.cost-group {
+  &_header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 0.6fr 0.6fr 0.8fr;
+    grid-template-rows: 1fr;
+    gap: 0 10px;
+    grid-template-areas: 'cost-group_header--cost-name cost-group_header--account-code cost-group_header--quoted cost-group_header--screened cost-group_header--empty';
+
+    padding: 0 10px;
+
+    background-color: $primary-blue;
+    color: $primary-white;
+  }
+}
