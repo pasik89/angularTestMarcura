@@ -66,6 +66,7 @@ export class SingleCostComponent implements OnInit, OnChanges {
 
   getScreenedCost(): void {
     this.screenedCost = this.exchangeCost(this.selectedCurrency, CostType.SCREENED);
+    this.screenedCostInput = this.exchangeCost(this.selectedCurrency, CostType.SCREENED);
   }
 
   getScreenedInputCost(): void {
